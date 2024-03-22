@@ -1,0 +1,22 @@
+#!/bin/bash
+
+cd
+echo "Welcome to the demo of Digit Identification."  
+
+#download from GitHub- depending on whether the GitFile is a folder or multiple different files, we will program accordingly
+
+scp -r fl22 test #here, I am copying dir named fl22 to home. Name of the new file is test. 
+if [[ $? -eq 0 ]]; then #if the download is successful, then...
+	echo "Command succeeded."
+	echo "The file will automatically move you to the [download] folder."
+	echo "Type bash.sh to run the Digit Identification with default input."
+	echo "Or you can try adding your own 28x28 pixel input into the file "" given above."
+	echo ""
+	echo "List of files in your new [download] folder:"
+	cd test #here I am changing dir so once the program is done, the user can conveniently be in the newly downloaded dir
+	ls -al #here I am listing all the components in the directory 
+	exec bash
+else
+	echo "Command failed"
+fi
+
